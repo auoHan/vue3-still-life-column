@@ -31,7 +31,7 @@ export default defineConfig({
         '@import "@/assets/scss/globalVariable1.scss";@import "@/assets/scss/globalVariable2.scss";'
         这种格式
          */
-        additionalData: '@import "@/assets/scss/index.scss";'
+        additionalData: '@import "@/assets/style/index.scss";'
       }
     }
   },
