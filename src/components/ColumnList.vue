@@ -28,9 +28,7 @@ interface Props {
   list: ColumnProps[]
 }
 
-const {
-  list
-} = withDefaults(defineProps<Props>(), {
+const {list} = withDefaults(defineProps<Props>(), {
   list: () => [
     {
       id: 1,
