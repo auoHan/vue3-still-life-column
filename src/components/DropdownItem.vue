@@ -5,8 +5,8 @@
 </template>
 
 <script lang='ts' setup>
+// disabled为ture时不可点击
 const {disabled = false} = defineProps<{ disabled: boolean }>()
-console.log(disabled)
 </script>
 
 <style lang="scss">
