@@ -12,6 +12,7 @@
     "lint:style": "stylelint --fix src/**/*.{vue,htm,html,css,sss,less,scss}"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.5",
     "axios": "^0.26.1",
     "bootstrap": "^5.1.3",
     "pinia": "^2.0.13",
