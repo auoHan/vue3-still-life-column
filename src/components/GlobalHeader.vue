@@ -11,7 +11,17 @@
     </ul>
     <ul v-else class="list-inline mb-0">
       <li class="list-inline-item">
-        <Dropdown :title="`你好！${name}`"></Dropdown>
+        <Dropdown :title="`你好！${name}`">
+          <DropdownItem>
+            <a class="dropdown-item" href="#">新建文章</a>
+          </DropdownItem>
+          <DropdownItem disabled>
+            <a class="dropdown-item" href="#">编辑资料</a>
+          </DropdownItem>
+          <DropdownItem>
+            <a class="dropdown-item" href="#">退出登录</a>
+          </DropdownItem>
+        </Dropdown>
       </li>
     </ul>
   </nav>
@@ -20,6 +30,7 @@
 <script lang='ts' setup>
 import {toRefs} from 'vue'
 import Dropdown from '@/components/Dropdown.vue'
+import DropdownItem from '@/components/DropdownItem.vue'
 
 export interface UserProps {
   isLogin: boolean,
