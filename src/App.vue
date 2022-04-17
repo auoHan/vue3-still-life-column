@@ -32,7 +32,6 @@ const currentUser = reactive<UserProps>(
     id: 1
   }
 )
-console.log(currentUser)
 </script>
 
 <style lang="scss" scoped>
