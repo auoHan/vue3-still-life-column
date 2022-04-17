@@ -1,11 +1,16 @@
 <template>
-  <ColumnList :list="list"></ColumnList>
+  <div class="container">
+    <GlobalHeader :currentUser="currentUser"></GlobalHeader>
+    <ColumnList :list="list"></ColumnList>
+  </div>
 </template>
 
 <script setup lang="ts">
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {reactive} from 'vue';
-import ColumnList, {ColumnProps} from '@/components/ColumnList.vue';
+
+import {reactive} from 'vue'
+import ColumnList, {ColumnProps} from '@/components/ColumnList.vue'
+import GlobalHeader, {UserProps} from '@/components/GlobalHeader.vue'
+
 const list = reactive<ColumnProps[]>([
   {
     id: 1,
@@ -20,6 +25,14 @@ const list = reactive<ColumnProps[]>([
     description: '描述2'
   }
 ])
+const currentUser = reactive<UserProps>(
+  {
+    isLogin: true,
+    name: 'kd',
+    id: 1
+  }
+)
+console.log(currentUser)
 </script>
 
 <style lang="scss" scoped>
