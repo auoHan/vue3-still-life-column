@@ -1,15 +1,28 @@
 <template>
   <div class="container">
     <GlobalHeader :currentUser="currentUser"></GlobalHeader>
-    <ColumnList :list="list"></ColumnList>
+    <!--<ColumnList :list="list"></ColumnList>-->
+    <form>
+      <div class="mb-3">
+        <label class="form-label">邮箱地址</label>
+        <ValidateInput v-model="emailValue" :rules="emailRules" placeholder="请输入邮箱地址" type="text"></ValidateInput>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">密码</label>
+        <ValidateInput v-model="passwordValue" :rules="passwordRules" placeholder="请输入密码"
+                       type="password"></ValidateInput>
+      </div>
+      <button class="btn btn-primary" type="submit">登录</button>
+    </form>
   </div>
 </template>
 
 <script setup lang="ts">
 
-import {reactive} from 'vue'
-import ColumnList, {ColumnProps} from '@/components/ColumnList.vue'
+import {reactive, ref} from 'vue'
+import {ColumnProps} from '@/components/ColumnList.vue'
 import GlobalHeader, {UserProps} from '@/components/GlobalHeader.vue'
+import ValidateInput, {RulesProp} from '@/components/ValidateInput.vue'
 
 const list = reactive<ColumnProps[]>([
   {
@@ -32,6 +45,15 @@ const currentUser = reactive<UserProps>(
     id: 1
   }
 )
+const emailRules: RulesProp = [
+  {type: 'required', message: '电子邮箱地址不能为空'},
+  {type: 'email', message: '请输入正确的电子邮箱格式'}
+]
+const passwordRules: RulesProp = [
+  {type: 'required', message: '密码不能为空'},
+  {type: 'password', message: '请输入正确的密码格式(以字母开头，长度在6-18之间)'}
+]
+const emailValue = ref(null)
 </script>
 
 <style lang="scss" scoped>
