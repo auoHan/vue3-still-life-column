@@ -15,6 +15,7 @@ specifiers:
   eslint-plugin-node: ^11.1.0
   eslint-plugin-promise: ^6.0.0
   eslint-plugin-vue: ^8.6.0
+  mitt: ^3.0.0
   pinia: ^2.0.13
   sass: ^1.49.11
   stylelint: ^14.6.1
@@ -33,6 +34,7 @@ dependencies:
   '@popperjs/core': 2.11.5
   axios: 0.26.1
   bootstrap: 5.1.3_@popperjs+core@2.11.5
+  mitt: 3.0.0
   pinia: 2.0.13_typescript@4.6.3+vue@3.2.31
   vue: 3.2.31
   vue-router: 4.0.14_vue@3.2.31
@@ -3293,12 +3295,16 @@ packages:
     dev: true
 
   /minimist/1.2.6:
-    resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
+    resolution: { integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q== }
     dev: true
 
+  /mitt/3.0.0:
+    resolution: { integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ== }
+    dev: false
+
   /mixin-deep/1.3.2:
-    resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}
-    engines: {node: '>=0.10.0'}
+    resolution: { integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA== }
+    engines: { node: '>=0.10.0' }
     dependencies:
       for-in: 1.0.2
       is-extendable: 1.0.1
