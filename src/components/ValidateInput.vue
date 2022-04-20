@@ -14,6 +14,8 @@
 
 <script lang='ts' setup>
 
+import {emitter} from '@/utils/emitter'
+
 const emailReg = /^[a-zA-Z\d][\w-]*[a-zA-Z\d]@[a-zA-Z\d][\w-]*[a-zA-Z\d]\.[a-zA-Z]+[a-zA-Z]$/
 
 // const passwordReg = /^[a-zA-Z]w{5,17}$/
@@ -38,7 +40,7 @@ const inputRef = reactive({
   message: ''
 })
 const newValue = computed({
-  get: () => props.modelValue,
+  get: () => props.modelValue || '',
   set: (value) => {
     emit('update:modelValue', value)
   }
@@ -63,8 +65,13 @@ const validateInput = () => {
       return passed
     })
     inputRef.error = !allPassed
+    return allPassed
   }
+  return true
 }
+onMounted(() => {
+  emitter.emit('formItemCreated', validateInput)
+})
 
 </script>
 <script lang="ts">

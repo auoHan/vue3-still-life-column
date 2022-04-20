@@ -5,7 +5,8 @@
     <ValidateForm @submitForm="submitForm">
       <div class="mb-3">
         <label class="form-label">邮箱地址</label>
-        <ValidateInput v-model="emailValue" :rules="emailRules" placeholder="请输入邮箱地址" type="text"></ValidateInput>
+        <ValidateInput v-model="emailValue" :rules="emailRules" placeholder="请输入邮箱地址" type="text"
+        ></ValidateInput>
       </div>
       <div class="mb-3">
         <label class="form-label">密码</label>
@@ -52,12 +53,13 @@ const emailRules: RulesProp = [
   {type: 'email', message: '请输入正确的电子邮箱格式'}
 ]
 const passwordRules: RulesProp = [
-  {type: 'required', message: '密码不能为空'},
-  {type: 'password', message: '请输入正确的密码格式(以字母开头，长度在6-18之间)'}
+  {type: 'required', message: '密码不能为空'}
 ]
 const emailValue = ref(null)
-const submitForm = (value: boolean) => {
-  console.log(value)
+const passwordValue = ref(null)
+const submitForm = (result: boolean) => {
+  emailValue.value = null
+  passwordValue.value = null
 }
 </script>
 
