@@ -27,7 +27,6 @@ watch(isClickOutside, () => {
     isOpen.value = false
   }
 })
-console.log(isOpen.value)
 </script>
 
 <style lang="scss" scoped>
