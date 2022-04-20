@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
 
-import {reactive, ref} from 'vue'
 import {ColumnProps} from '@/components/ColumnList.vue'
 import GlobalHeader, {UserProps} from '@/components/GlobalHeader.vue'
 import ValidateInput, {RulesProp} from '@/components/ValidateInput.vue'

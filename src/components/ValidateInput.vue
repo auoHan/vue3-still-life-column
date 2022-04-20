@@ -13,7 +13,6 @@
 </template>
 
 <script lang='ts' setup>
-import {computed, reactive, toRefs} from 'vue'
 
 const emailReg = /^[a-zA-Z\d][\w-]*[a-zA-Z\d]@[a-zA-Z\d][\w-]*[a-zA-Z\d]\.[a-zA-Z]+[a-zA-Z]$/
 

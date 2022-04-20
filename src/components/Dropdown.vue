@@ -11,7 +11,6 @@
 </template>
 
 <script lang='ts' setup>
-import {ref, watch} from 'vue'
 import {useClickOutside} from '@/hooks/useClickOutside'
 
 const {title} = defineProps<{ title: string }>()

@@ -28,7 +28,6 @@
 </template>
 
 <script lang='ts' setup>
-import {toRefs} from 'vue'
 import Dropdown from '@/components/Dropdown.vue'
 import DropdownItem from '@/components/DropdownItem.vue'
 
