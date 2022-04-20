@@ -1,7 +1,8 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
 import viteCompression from 'vite-plugin-compression'
+import autoImport from 'unplugin-auto-import/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -14,6 +15,10 @@ export default defineConfig({
       algorithm: 'gzip',
       ext: '.gz',
     }),
+    autoImport({
+      imports: ['vue', 'vue-router'], // 自动导入vue和vue-router相关函数
+      dts: 'src/auto-import.d.ts' // 生成 `auto-import.d.ts` 全局声明
+    })
   ],
   resolve: {
     alias: {
