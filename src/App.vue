@@ -2,7 +2,7 @@
   <div class="container">
     <GlobalHeader :currentUser="currentUser"></GlobalHeader>
     <!--<ColumnList :list="list"></ColumnList>-->
-    <form>
+    <ValidateForm @submitForm="submitForm">
       <div class="mb-3">
         <label class="form-label">邮箱地址</label>
         <ValidateInput v-model="emailValue" :rules="emailRules" placeholder="请输入邮箱地址" type="text"></ValidateInput>
@@ -12,8 +12,10 @@
         <ValidateInput v-model="passwordValue" :rules="passwordRules" placeholder="请输入密码"
                        type="password"></ValidateInput>
       </div>
-      <button class="btn btn-primary" type="submit">登录</button>
-    </form>
+      <template #submit>
+        <button class="btn btn-danger" type="submit">登录</button>
+      </template>
+    </ValidateForm>
   </div>
 </template>
 
@@ -23,6 +25,7 @@ import {reactive, ref} from 'vue'
 import {ColumnProps} from '@/components/ColumnList.vue'
 import GlobalHeader, {UserProps} from '@/components/GlobalHeader.vue'
 import ValidateInput, {RulesProp} from '@/components/ValidateInput.vue'
+import ValidateForm from '@/components/ValidateForm.vue'
 
 const list = reactive<ColumnProps[]>([
   {
@@ -54,6 +57,9 @@ const passwordRules: RulesProp = [
   {type: 'password', message: '请输入正确的密码格式(以字母开头，长度在6-18之间)'}
 ]
 const emailValue = ref(null)
+const submitForm = (value: boolean) => {
+  console.log(value)
+}
 </script>
 
 <style lang="scss" scoped>
