@@ -3,7 +3,7 @@
     <slot></slot>
     <div class="submit-area" @click.prevent="submitForm">
       <slot name="submit">
-        <button class="btn btn-primary" type="submit">提交</button>
+        <button class="btn btn-primary mb-3 d-grid gap-2 col-1 mx-auto" type="submit">登录</button>
       </slot>
     </div>
   </form>
