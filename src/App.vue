@@ -10,14 +10,9 @@
 
 import GlobalHeader, {UserProps} from '@/components/GlobalHeader.vue'
 import GlobalFooter from '@/components/GlobalFooter.vue'
+import {useColumnsStore} from '@/store/columns'
 
-const currentUser = reactive<UserProps>(
-  {
-    isLogin: true,
-    name: 'kd',
-    id: 1
-  }
-)
+const {user: currentUser} = storeToRefs(useColumnsStore())
 </script>
 
 <style lang="scss" scoped>
