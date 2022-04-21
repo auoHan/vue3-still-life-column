@@ -23,9 +23,9 @@
 <script lang='ts' setup>
 
 import ColumnList from '@/components/ColumnList.vue'
-import {ColumnProps, testData} from '@/utils/testData'
+import {useColumnsStore} from '@/store/columns'
 
-const list = reactive<ColumnProps[]>(testData)
+const {columns: list} = storeToRefs(useColumnsStore()) // 解构出来并设置别名
 const isLastPage = ref(false)
 const loadMorePage = () => {
   console.log('loadMorePage')
