@@ -3,7 +3,7 @@
     <a class="navbar-brand" href="#">四季专栏</a>
     <ul v-if="!isLogin" class="list-inline mb-0">
       <li class="list-inline-item">
-        <a class="btn btn-outline-light my-2">登录</a>
+        <router-link class="btn btn-outline-light my-2" to="/login">登录</router-link>
       </li>
       <li class="list-inline-item">
         <a class="btn btn-outline-light my-2">注册</a>
