@@ -20,7 +20,9 @@
 
 import ValidateInput, {RulesProp} from '@/components/ValidateInput.vue'
 import ValidateForm from '@/components/ValidateForm.vue'
+import {useColumnsStore} from '@/store/columns'
 
+const {login} = useColumnsStore()
 const emailRules: RulesProp = [
   {type: 'required', message: '电子邮箱地址不能为空'},
   {type: 'email', message: '请输入正确的电子邮箱格式'}
@@ -30,11 +32,13 @@ const passwordRules: RulesProp = [
 ]
 const emailValue = ref(null)
 const passwordValue = ref(null)
+const router = useRouter()
 const submitForm = (result: boolean) => {
   emailValue.value = null
   passwordValue.value = null
   if (result) {
-    useRouter().push({name: 'ColumnDetail', params: {id: 1}})
+    login()
+    router.push('/home')
   }
 }
 
