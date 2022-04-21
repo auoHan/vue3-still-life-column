@@ -19,10 +19,10 @@ import {useColumnsStore} from '@/store/columns'
 import PostList from '@/components/PostList.vue'
 
 const route = useRoute()
-const {columns, posts} = storeToRefs(useColumnsStore())
+const {getColumnById, getPostsByCid} = useColumnsStore()
 const currentId = +route.params.id // string类型转换为number类型
-const column = columns.value.find(c => c.id === currentId)
-const list = posts.value.filter(post => post.id === currentId)
+const column = getColumnById(currentId)
+const list = getPostsByCid(currentId)
 </script>
 
 <style lang="scss" scoped>

@@ -26,6 +26,8 @@ import ColumnList from '@/components/ColumnList.vue'
 import {useColumnsStore} from '@/store/columns'
 
 const {columns: list} = storeToRefs(useColumnsStore()) // 解构出来并设置别名
+const {biggerColumnsLen} = useColumnsStore()
+console.log(biggerColumnsLen())
 const isLastPage = ref(false)
 const loadMorePage = () => {
   console.log('loadMorePage')
