@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-dark bg-primary justify-content-between mb-4 px-4">
     <router-link class="navbar-brand" to="/home">四季专栏</router-link>
-    <ul v-if="!isLogin" class="list-inline mb-0">
+    <ul v-if="!currentUser.isLogin" class="list-inline mb-0">
       <li class="list-inline-item">
         <router-link class="btn btn-outline-light my-2" to="/login">登录</router-link>
       </li>
@@ -11,7 +11,7 @@
     </ul>
     <ul v-else class="list-inline mb-0">
       <li class="list-inline-item">
-        <Dropdown :title="`你好！${name}`">
+        <Dropdown :title="`你好！${currentUser.name}`">
           <DropdownItem>
             <a class="dropdown-item" href="#">新建文章</a>
           </DropdownItem>
