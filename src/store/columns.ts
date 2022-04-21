@@ -7,5 +7,10 @@ export const useColumnsStore = defineStore('columns', () => {
   const user = reactive<UserProps>({
     isLogin: false
   })
-  return {columns, posts, user}
+  const login = () => {
+    user.isLogin = true
+    user.name = '李好'
+    user.id = 1
+  }
+  return {columns, posts, user, login}
 })
