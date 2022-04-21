@@ -38,7 +38,8 @@ export interface UserProps {
 }
 
 const {currentUser} = defineProps<{ currentUser: UserProps }>()
-const {isLogin, name, id} = toRefs(currentUser) // 这样解构才是响应式的，{currentUser:{isLogin, name, id}}这样不是响应式的
+// 解构出来拿到的name是undefined，不知道什么原因，控制台也没打印
+//const {isLogin, name, id} = toRefs(currentUser) // 这样解构才是响应式的，{currentUser:{isLogin, name, id}}这样不是响应式的
 </script>
 
 <style lang="scss" scoped>
