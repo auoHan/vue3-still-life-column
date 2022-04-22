@@ -1,11 +1,20 @@
 <template>
   <div class="validate-input-container pb-3">
     <input
+      v-if="tag!=='textarea'"
       v-model="newValue"
       :class="{'is-invalid': error}"
       class="form-control"
       v-bind="$attrs"
       @blur="validateInput">
+    <textarea
+      v-else
+      v-model="newValue"
+      :class="{'is-invalid': error}"
+      class="form-control"
+      v-bind="$attrs"
+      @blur="validateInput"
+    />
     <span v-if="error" class="invalid-feedback">
       {{ message }}
     </span>
@@ -25,11 +34,14 @@ interface RuleProp {
 }
 
 export type RulesProp = RuleProp[]
+export type TagType = 'input' | 'textarea'
+
 
 // 获取父组件的参数
 const props = defineProps<{
   rules: RulesProp,
-  modelValue: string
+  modelValue: string,
+  tag: TagType
 }>()
 // 发送事件
 const emit = defineEmits<{

@@ -8,6 +8,7 @@
           v-model="titleValue" :rules="titleRules"
           placeholder="请输入文章标题"
           type="text"
+          tag="input"
         />
       </div>
       <div class="mb-3">
