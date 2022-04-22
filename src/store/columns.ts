@@ -1,7 +1,9 @@
 import {testData, testPosts} from '@/utils/testData'
 import {UserProps} from '@/components/GlobalHeader.vue'
+import {PersistOptions} from 'pinia-plugin-persist'
 
-export const useColumnsStore = defineStore('columns', () => {
+// setup写法
+const storeSetup = () => {
   // state
   const columns = reactive(testData)
   const posts = reactive(testPosts)
@@ -25,4 +27,7 @@ export const useColumnsStore = defineStore('columns', () => {
     user.id = 1
   }
   return {columns, posts, user, login, biggerColumnsLen, getColumnById, getPostsByCid}
-})
+}
+// 实现持久化缓存
+const storePersist: PersistOptions = {enabled: true, strategies: [{storage: localStorage}]}
+export const useColumnsStore = defineStore('columns', storeSetup, {persist: storePersist})

@@ -17,6 +17,7 @@ specifiers:
   eslint-plugin-vue: ^8.6.0
   mitt: ^3.0.0
   pinia: ^2.0.13
+  pinia-plugin-persist: ^1.0.0
   sass: ^1.49.11
   stylelint: ^14.6.1
   stylelint-config-rational-order: ^0.1.2
@@ -36,6 +37,7 @@ dependencies:
   bootstrap: 5.1.3_@popperjs+core@2.11.5
   mitt: 3.0.0
   pinia: 2.0.13_typescript@4.6.3+vue@3.2.31
+  pinia-plugin-persist: 1.0.0_pinia@2.0.13+vue@3.2.31
   vue: 3.2.31
   vue-router: 4.0.14_vue@3.2.31
 
@@ -3598,17 +3600,32 @@ packages:
     dev: true
 
   /pify/3.0.0:
-    resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
-    engines: {node: '>=4'}
+    resolution: { integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg== }
+    engines: { node: '>=4' }
     dev: true
 
   /pify/4.0.1:
-    resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
-    engines: {node: '>=6'}
+    resolution: { integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g== }
+    engines: { node: '>=6' }
     dev: true
 
+  /pinia-plugin-persist/1.0.0_pinia@2.0.13+vue@3.2.31:
+    resolution: { integrity: sha512-M4hBBd8fz/GgNmUPaaUsC29y1M09lqbXrMAHcusVoU8xlQi1TqgkWnnhvMikZwr7Le/hVyMx8KUcumGGrR6GVw== }
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0
+      pinia: ^2.0.0
+      vue: ^2.0.0 || >=3.0.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      pinia: 2.0.13_typescript@4.6.3+vue@3.2.31
+      vue: 3.2.31
+      vue-demi: 0.12.5_vue@3.2.31
+    dev: false
+
   /pinia/2.0.13_typescript@4.6.3+vue@3.2.31:
-    resolution: {integrity: sha512-B7rSqm1xNpwcPMnqns8/gVBfbbi7lWTByzS6aPZ4JOXSJD4Y531rZHDCoYWBwLyHY/8hWnXljgiXp6rRyrofcw==}
+    resolution: { integrity: sha512-B7rSqm1xNpwcPMnqns8/gVBfbbi7lWTByzS6aPZ4JOXSJD4Y531rZHDCoYWBwLyHY/8hWnXljgiXp6rRyrofcw== }
     peerDependencies:
       '@vue/composition-api': ^1.4.0
       typescript: '>=4.4.4'
