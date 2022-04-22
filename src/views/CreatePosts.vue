@@ -31,15 +31,39 @@
 
 <script lang='ts' setup>
 
-import ValidateInput from '@/components/ValidateInput.vue'
+import ValidateInput, {RulesProp} from '@/components/ValidateInput.vue'
 import ValidateForm from '@/components/ValidateForm.vue'
+import {useColumnsStore} from '@/store/columns'
+import {PostProps} from '@/utils/testData'
 
-const submitForm = (result: boolean) => {}
-const titleRules = []
-const contentRules = []
-const titleValue = ref(null)
-const contentValue = ref(null)
+const router = useRouter()
+const {user} = storeToRefs(useColumnsStore())
+const {createPost} = useColumnsStore()
+const titleRules: RulesProp = [
+  {type: 'required', message: '文章标题不能为空'}
+]
+const contentRules: RulesProp = [
+  {type: 'required', message: '文章详情不能为空'}
+]
+const titleValue = ref('')
+const contentValue = ref('')
 const isEditMode = ref(false)
+const submitForm = (result: boolean) => {
+  if (result) {
+    const columnId = user.value.columnId
+    if (columnId) {
+      const newPost: PostProps = {
+        id: 5,
+        title: titleValue.value,
+        content: contentValue.value,
+        createdAt: '2022-01-01',
+        columnId
+      }
+      createPost(newPost)
+      router.push({name: 'column', params: {id: columnId}})
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

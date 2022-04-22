@@ -1,4 +1,4 @@
-import {testData, testPosts} from '@/utils/testData'
+import {ColumnProps, PostProps, testData, testPosts} from '@/utils/testData'
 import {PersistOptions} from 'pinia-plugin-persist'
 
 export interface UserProps {
@@ -7,11 +7,12 @@ export interface UserProps {
   id?: number,
   columnId?: number
 }
+
 // setup写法
 const storeSetup = () => {
   // state
-  const columns = reactive(testData)
-  const posts = reactive(testPosts)
+  const columns = reactive<ColumnProps[]>(testData)
+  const posts = reactive<PostProps[]>(testPosts)
   const user = reactive<UserProps>({
     isLogin: false
   })
@@ -30,9 +31,12 @@ const storeSetup = () => {
     user.isLogin = true
     user.name = '李好'
     user.id = 1
-    user.columnId = 1
+    user.columnId = 5
   }
-  return {columns, posts, user, login, biggerColumnsLen, getColumnById, getPostsByCid}
+  const createPost = (newPost: PostProps) => {
+    posts.push(newPost)
+  }
+  return {columns, posts, user, login, biggerColumnsLen, getColumnById, getPostsByCid, createPost}
 }
 // 实现持久化缓存
 const storePersist: PersistOptions = {enabled: true, strategies: [{storage: localStorage}]}
