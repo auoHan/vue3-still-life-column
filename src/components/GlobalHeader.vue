@@ -13,7 +13,7 @@
       <li class="list-inline-item">
         <Dropdown :title="`你好！${currentUser.name}`">
           <DropdownItem>
-            <a class="dropdown-item" href="#">新建文章</a>
+            <router-link class="dropdown-item" to="/create">新建文章</router-link>
           </DropdownItem>
           <DropdownItem disabled>
             <a class="dropdown-item" href="#">编辑资料</a>
