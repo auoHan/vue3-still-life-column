@@ -30,12 +30,7 @@
 <script lang='ts' setup>
 import Dropdown from '@/components/Dropdown.vue'
 import DropdownItem from '@/components/DropdownItem.vue'
-
-export interface UserProps {
-  isLogin: boolean,
-  name?: string,
-  id?: number
-}
+import {UserProps} from '@/store/columns'
 
 const {currentUser} = defineProps<{ currentUser: UserProps }>()
 // 解构出来拿到的name是undefined，不知道什么原因，控制台也没打印

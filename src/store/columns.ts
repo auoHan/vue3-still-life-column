@@ -1,7 +1,12 @@
 import {testData, testPosts} from '@/utils/testData'
-import {UserProps} from '@/components/GlobalHeader.vue'
 import {PersistOptions} from 'pinia-plugin-persist'
 
+export interface UserProps {
+  isLogin: boolean,
+  name?: string,
+  id?: number,
+  columnId?: number
+}
 // setup写法
 const storeSetup = () => {
   // state
@@ -25,6 +30,7 @@ const storeSetup = () => {
     user.isLogin = true
     user.name = '李好'
     user.id = 1
+    user.columnId = 1
   }
   return {columns, posts, user, login, biggerColumnsLen, getColumnById, getPostsByCid}
 }
