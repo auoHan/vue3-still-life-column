@@ -19,12 +19,14 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/column/:id',
     name: 'column',
-    component: () => import('@/views/ColumnDetail.vue') // 注意这里要带上 文件后缀.vue
+    component: () => import('@/views/ColumnDetail.vue'), // 注意这里要带上 文件后缀.vue
+    meta: {requiresAuth: true}
   },
   {
     path: '/create',
     name: 'create',
-    component: () => import('@/views/CreatePosts.vue') // 注意这里要带上 文件后缀.vue
+    component: () => import('@/views/CreatePosts.vue'), // 注意这里要带上 文件后缀.vue
+    meta: {requiresAuth: true}
   },
 ]
 
@@ -35,9 +37,13 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   // pinia调用需要写在这，使用时调用，这样pinia已经挂载在了全局，不然会显示未定义pinia
   const {user} = storeToRefs(useColumnsStore())
-  if (to.name !== 'login' && !user.value.isLogin) {
+  // 此路由需要授权，请检查是否已登录
+  // 如果没有，则重定向到登录页面
+  if (to.meta.requiresAuth && !user.value.isLogin) {
     // return之后不需要再写next，详情看官方文档
-    return {name: 'login'}
+    return {
+      name: 'login',
+    }
   }
 })
 
