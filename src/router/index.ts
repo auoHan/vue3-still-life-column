@@ -14,7 +14,8 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/Login.vue')
+    component: () => import('@/views/Login.vue'),
+    meta: {redirectAlreadyLogin: true}
   },
   {
     path: '/column/:id',
@@ -43,6 +44,11 @@ router.beforeEach((to, from) => {
     // return之后不需要再写next，详情看官方文档
     return {
       name: 'login',
+    }
+  } else if (to.meta.redirectAlreadyLogin && user.value.isLogin) {
+    // 已登录再去login页面跳转到home页面
+    return {
+      path: '/home'
     }
   }
 })
