@@ -36,7 +36,8 @@ router.beforeEach((to, from) => {
   // pinia调用需要写在这，使用时调用，这样pinia已经挂载在了全局，不然会显示未定义pinia
   const {user} = storeToRefs(useColumnsStore())
   if (to.name !== 'login' && !user.value.isLogin) {
-    return router.push('/login')
+    // return之后不需要再写next，详情看官方文档
+    return {name: 'login'}
   }
 })
 
