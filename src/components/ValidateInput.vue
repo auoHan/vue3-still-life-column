@@ -38,7 +38,7 @@ export type TagType = 'input' | 'textarea'
 
 
 // 获取父组件的参数
-const props = defineProps<{
+const props = defineProps<{ // 此处要写props，解构出来不是响应式的
   rules: RulesProp,
   modelValue: string,
   tag: TagType
